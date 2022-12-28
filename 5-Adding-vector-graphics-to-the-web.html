@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding vector graphics to the web</title>
+</head>
+<body>
+    <h1>V Добавление векторной графики в веб-документ</h1>
+    
+    <h2>Что такое векторная графика?</h2>
+
+    <p>В веб-разработке вы будете сталкиваться с двумя типами изображений - растровым и векторным:</p>
+
+    <ul>
+        <li>Растровое изображение задаётся сеткой пикселей — файл растрового изображения содержит информацию о расположении и цвете каждого пикселя. Среди популярных форматов изображений данного типа числятся Bitmap (.bmp), PNG (.png), JPEG (.jpg) и GIF (.gif)</li>
+         <img src="images/star.png" alt="A raster star">
+        <li>Векторное изображение определяется алгоритмом — файл векторного изображения содержит фигуры и правила, по которым компьютер может вычислить как должно выглядеть изображение, когда выводится на экран.SVG формат позволяет нам создавать векторную графику для использования в веб-документах.
+        </li>
+         <img src="images/star.svg" role="img" alt="A vector star">
+    </ul>
+
+    <h2>Что такое SVG?</h2>
+
+    <svg version="1.1"
+        baseProfile="full"
+        width="300"
+        height="200"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="black" />
+        <circle cx="150" cy="100" r="90" fill="blue" />
+    </svg>
+
+    <p>Для создания SVG изображений используются редакторы векторной графики, такие как <a href="https://inkscape.org/ru/?switchlang=ru">Inkscape</a>  или Illustrator.</p> 
+    
+  <h2>Добавление SVG на страницы</h2>  
+
+  <img
+    src="equilateral.svg"
+    alt="triangle with all three sides equal"
+    height="87px"
+    width="100px" />
+
+    <svg width="300" height="200">
+        <rect width="100%" height="100%" fill="green" />
+    </svg>
+
+    <h2>Как встраивать SVG при помощи iframe</h2>
+
+    <iframe src="triangle.svg" width="500" height="500" sandbox>
+        <img src="triangle.png" alt="Triangle with three unequal sides"/>
+    </iframe>
+    
+    <h2>Активное изучение: поиграйте с SVG</h2>
+
+    <svg width="100%" height="100%">
+
+        <rect width="100%" height="100%" fill="red" />
+    
+        <circle cx="100%" cy="100%" r="100" fill="blue" stroke="black" />
+    
+        <polygon points="120,0 240,225 0,225" fill="green"/>
+    
+        <text x="50" y="100" font-family="Verdana" font-size="55"
+              fill="white" stroke="black" stroke-width="2">
+                Hello!
+        </text>
+      </svg>
+
+
+
+  
+
+
+</body>
+</html>

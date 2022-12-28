@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive images</title>
+    <style>
+        html {
+          font-family: sans-serif;
+          background-color: gray;
+        }
+  
+        body {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          background-color: white;
+        }
+  
+        header {
+          background: url(images/header.png) no-repeat center;
+          height: 200px;
+        }
+  
+        section {
+          padding: 20px;
+        }
+  
+        p {
+          line-height: 1.5;
+        }
+  
+        img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+        }
+    </style>
+</head>
+
+    <body>
+        
+      <header>
+        
+      </header>
+
+  <h1>VI Адаптивные изображения</h1>
+
+      <main>
+        <section>
+          <h1>My website</h1>
+  
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget venenatis ligula. Ut lacinia at dolor vitae pulvinar. Aliquam pretium dignissim eros. Integer faucibus, dui non aliquet bibendum, lectus orci lobortis odio, ornare porttitor est tellus eget velit. Nulla eros elit, malesuada id neque vel, viverra vehicula neque. Nullam auctor turpis non leo iaculis finibus. Quisque blandit arcu venenatis libero tempor, ac pulvinar ligula dapibus.</p>
+  
+          <img src="images/elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+  
+          <p>Suspendisse potenti. Ut in luctus eros. Mauris pulvinar vehicula aliquet. Etiam imperdiet eleifend luctus. Duis ut justo nec eros ornare consectetur. Vestibulum convallis condimentum varius. Maecenas rutrum porta varius. Phasellus volutpat sem id sagittis luctus. Morbi vitae quam vitae nisi iaculis dignissim.</p>
+  
+          <img src="images/elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+  
+          <p>Header image originally by <a href="https://www.flickr.com/photos/miwok/17086751527/">Miwok</a>.</p>
+        </section>
+      </main>
+
+      <h2>Разные разрешения: Разные размеры</h2>
+
+      <img  srcset="images/elva-fairy-320w.psb 320w, 
+                    images/elva-fairy-480w.jpg 480w,
+                    images/elva-fairy-800w.jpg 800w"
+            sizes="(max-width:320px) 280px,
+                    (max-width:480px) 440px,
+                    800px"
+            src="images/elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+
+           <p> <mark>sizes</mark>  определяет перечень медиавыражений (например, ширину экрана) и указывает предпочтительную ширину изображения, когда определённое медиавыражение истинно — это то, о чём мы говорили выше. В нашем случае, перед каждой запятой мы пишем:
+<ol>
+<li>Медиа-условие ((max-width:480px)) — вы можете больше узнать об этом в CSS topic, но сейчас давайте скажем, что медиа-условие описывает возможное состояние экрана. В этом случае, мы говорим "когда viewport width меньше или равен 480 пикселям".</li>
+<li>Пробел.</li>
+<li>Ширину слота (в оригинале "width of the slot"), занимаемую изображением, когда медиа-условие истинно. (440px)</li>
+</p>
+
+<p> Для ширины слота, вы можете указать абсолютные значения (px, em) или значение относительно окна просмотра (vw), но НЕ проценты. Вы могли заметить, что у последнего слота нет медиа-условия — это значение по умолчанию, которое станет актуальным, если ни одно из предыдущих медиа-условий не будет истинно. Браузер игнорирует все последующие проверки после первого совпадения, так что будьте внимательнее к порядку их объявления.</p>
+
+<h2>Полезные инструменты разработчика</h2>
+
+<p>Правая кнопка мышки - Перевірити -  А дальше вы можете проверить работает ли srcset если установить значение viewport width таким каким вы хотите (например, установить узкую ширину), открыв Network Inspector (Tools > Web Developer > Network) и затем перезагрузить страницу. </p>
+
+<h2>Переключения разрешений: Одинаковый размер, разные разрешения</h2>
+
+<img srcset="elva-fairy-320w.jpg,
+             elva-fairy-480w.jpg 1.5x,
+             elva-fairy-640w.jpg 2x"
+     src="elva-fairy-640w.jpg" alt="Elva dressed as a fairy">
+
+     <p>В этом случае, нет необходимости в sizes — браузер просто определяет в каком разрешении отображает дисплей и выводит наиболее подходящее изображение в соответствии с srcset. Таким образом, если устройство, подключаемое к странице, имеет дисплей стандартного/низкого разрешения, когда один пиксель устройства представляет (соответствует) каждый CSS-пиксель, то будет загружено изображение elva-fairy-320w.jpg (применён x1, то есть вам не надо включать его). Если устройство имеет высокое разрешение, в два пикселя устройства на каждый CSS-пиксель или более, то будет загружено изображение elva-fairy-640w.jpg. 640px изображение имеет размер 93KB, тогда так 320px изображение - всего 39KB.</p>
+
+     <h2>Художественное оформление</h2>
+
+     <picture>
+        <source media="(max-width:799px)" srcset="images/elva-480w-close-portrait.jpg">
+        <source media="(min-width:800px)" srcset="images/elva-800w.jpg">
+        <img src="images/elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+     </picture>
+
+     <ul>
+        <li>Элемент source> принимает атрибут media, который содержит медиа-условие; при помощи этих условий определяется, какое изображение будет выведено. В данном случае, если ширина viewport'a составит 799px или меньше, будет выведено изображение первого элемента source>. Если ширина составит 800px и более — второго.</li>
+        <li>Атрибут srcset содержит путь изображения, которое будет выведено. Обратите внимание, что, как и в примере с img выше, source> может принимать атрибуты srcset и sizes с несколько предопределёнными изображениями. Так вы можете не только поместить группу изображений внутри элемента picture>, но и задать группу предписаний для каждого из них. В реальности вы вряд ли захотите заниматься этим очень часто.</li>
+        <li>Вы всегда должны использовать элемент img, с src и alt, прямо перед /picture>, иначе изображения не появятся. Это нужно на тот случай, когда ни одно из медиа-условий не удовлетворено (например, если бы вы убрали второй элемент source>) или браузер не поддерживает элемент picture>.</li>
+     </ul>
+<p>Почему это нельзя сделать посредством CSS и JavaScript?
+    Когда браузер начинает загружать страницу, он начинает загрузку изображений до того, как главный парсер начал загружать и интерпретировать CSS и JavaScript. В среднем, эта техника уменьшает время загрузки страницы на 20%. Но она не так полезна в случае с адаптивными изображениями, поэтому и необходимы такие решения, как srcset. Например, вы не могли бы загрузить элемент img>, потом определить ширину вьюпорта при помощи JavaScript и динамически изменить источник изображения. Изначальное изображение было бы уже загружено к тому времени, как вы загрузили его меньшую версию, что плохо.</p>
+
+    <h2>Смело используйте современные форматы изображений:  таких, как WebP и JPEG-2000</h2>
+
+    <picture>
+        <source srcset="images/pyramide.svg" type="image/svg+xml"> 
+        <source srcset="images/pyramide.webp" type="image/webp"> 
+        <img src="images/pyramid.png" alt="regular pyramid built from four equilateral triangles">
+
+    </picture>
+
+
+
+    </body>
+</html>

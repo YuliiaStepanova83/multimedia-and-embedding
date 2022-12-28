@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video and audio content</title>
+</head>
+
+<body>
+    
+    <h1>III Video and audio content</h1>
+
+    <h2>Элемент video</h2> 
+
+    <video src="test-video.mp4" controls>
+        <p>Ваш браузер не поддерживает HTML5 видео. Используйте <a href="https://www.youtube.com/watch?v=p5KZnoeDypA">ссылку на видео</a> для доступа.</p>
+    </video>
+
+    <p> controls - Пользователи должны иметь возможность контролировать воспроизведение видео и аудио (особенно это важно для людей, которые больны эпилепсией). Вы должны либо использовать атрибут controls, чтобы использовать встроенный в браузер интерфейс управления или создать собственный интерфейс, используя соответствующие JavaScript API.интерфейс должен включать способ запуска и остановки медиа-носителя и регулировки громкости.</p>
+
+    <h2>Поддержка медиафайлов в браузерах</h2>
+
+    <p>В ином случае браузер пройдётся по элементам <source> и начнёт воспроизводить первый из них, который имеет поддерживаемый кодек. Пример:</p>
+
+    <video controls>
+        <source src="rabbit320.mp4" type="video/mp4">
+        <source src="rabbit320.webm" type="video/webm">
+        <p>Ваш браузер не поддерживает HTML5 видео. Вот <a href="rabbit320.mp4">ссылка на видео</a> взамен.</p>
+    </video>
+
+    <h2>Другие параметры video </h2>
+
+    <video controls width="400" height="400"
+             autoplay loop muted 
+             poster="images/poster.webp">
+        <source src="test-video.mp4" type="video/mp4">
+        <source src="rabbit320.webm" type="video/webm">
+        <p>Your browser doesn't support HTML5 video. Here is a <a href="rabbit320.mp4">link to the video</a> instead.</p></p> 
+    </video>
+
+    <p><strong>autoplay</strong> <br>
+        Этот атрибут позволяет сразу начать воспроизведение звука или видео, пока остальная часть страницы загружается. Вам <strong> не рекомендуется</strong> использовать автовоспроизведение видео (или аудио) на ваших сайтах, потому что пользователи могут найти это действительно раздражающим.</p>
+
+    <p> <strong>loop</strong> <br>
+        Этот атрибут позволяет воспроизводить видео (или аудио) снова, когда он заканчивается. Это также может раздражать, поэтому используйте тогда, когда это действительно необходимо.</p>
+
+    <p> <strong>muted</strong> <br>
+        Этот атрибут заставляет проигрыватель воспроизводить звук, отключённый по умолчанию.</p>    
+    
+    <p> <strong>poster</strong> <br>
+        Этот атрибут принимает в качестве значения URL-адрес изображения, который будет отображаться до воспроизведения видео. Он предназначен для заставки к видео или рекламы.</p>
+    
+    <p> <strong>preload</strong>
+        этот атрибут используется в элементе для буферизации больших файлов. Он может принимать одно из трёх значений:
+        
+        "none" не буферизирует файл
+        "auto" буферизирует медиафайл
+    "metadata" буферирует только метаданные файла</p>
+
+        <h2>Элемент audio </h2>
+
+        <audio src="">
+
+        </audio controls>
+            <source src="viper.mp3" type="audio/mp3">
+            <source src="viper.ogg" type="audio/ogg">
+            <p>Your browser doesn't support HTML5 audio. Here is a <a href="viper.mp3">link to the audio</a> instead.</p>
+        </audio>>
+
+          <p>Элемент <audio> не поддерживает атрибуты width и height - опять же, нет визуального компонента, поэтому присваивать ширину или высоту не к чему.
+            Он также не поддерживает атрибут​​​​​ poster опять же, из-за отсутствия визуального компонента.
+            Помимо этого, <audio> поддерживает все те же функции, что и <video> - просмотрите приведённые выше разделы для получения дополнительной информации о них.</p>
+
+        <h2>Отображение текстовых дорожек к видео</h2>
+
+        <p> Чтобы отобразить это вместе с воспроизведением мультимедиа HTML, вам необходимо:
+
+1. Сохраните его как .vtt- файл, в разумном месте.
+2. Ссылка на файл .vtt с элементом <track>. <track> должен быть помещён в <audio> или <video>, но после элементов <source>. Используйте атрибут kind, чтобы указать, являются ли реплики субтитрами, титрами или описаниями. Кроме того, используйте srclang, чтобы сообщить браузеру, на каком языке вы записывали субтитры.
+Вот пример:</p>
+
+<video controls>
+    <source src="example.mp4" type="video/mp4">
+    <source src="example.webm" type="video/webm">
+    <track kind="subtitles" src="subtitles_en.vtt" srclang="en">
+</video>
+
+
+
+
+      
+
+
+
+  
+
+</body>
+</html>

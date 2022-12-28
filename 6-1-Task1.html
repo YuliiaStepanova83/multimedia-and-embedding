@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Активное обучение: реализация собственных адаптивных изображений</h1>
+    <p>Самостоятельно создайте адаптивное, художественно оформленное изображение для широких и узких экранов, используя picture> и srcset.</p>
+
+        <ol>
+            <li> Напишите простую HTML-разметку.</li>
+            <li> Найдите широкоформатное пейзажное фото с какой-нибудь яркой деталью. Создайте веб-версию изображения посредством графического редактора, потом обрежьте его, чтобы крупнее выделить деталь, и создайте второе изображение (примерно 480px достаточно).</li>
+            <li> Используйте элемент picture> для работы с художественно оформленной картинкой.</li>
+            <li>Обозначьте несколько разных размеров для этой картинки.</li>
+            <li>Используйте srcset/size для описания переключения при смене размеров вьюпорта</li>
+        </ol>
+        
+
+        <h2>Художественное оформление</h2>
+
+     <picture>
+        <source media="(max-width: 799px)" srcset="images/smile480.jpg">
+        <source media="(min-width: 800px)" srcset="images/smile1242.jpg">
+        <img src="" alt="The cat smiles and wishes a positive morning and health">
+     </picture>
+
+       
+       
+       
+        
+</body>
+</html>
